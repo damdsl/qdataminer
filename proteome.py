@@ -1,7 +1,6 @@
 import pandas as pd
 import toolz
 import json
-from pymongo import MongoClient
 from bson import ObjectId
 import re
 
