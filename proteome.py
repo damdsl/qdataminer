@@ -5,19 +5,20 @@ from pymongo import MongoClient
 from bson import ObjectId
 import re
 
-df = pd.read_csv('/home/elasticsearch/A84D-39CD/example_protein_lists_MaxQuant/proteinGroups_SGPN.txt', sep='\t')
+df = pd.read_csv('<yourfilepath>.txt', sep='\t')
 df = df.set_index('Protein IDs')
 df.index.name = 'proteinIds'
 
+#Extraction of quantitative information per QBiC sample identifier
 cols = [col for col in df.columns if col.startswith('Intensity ')]
 cols = [col.split() for col in cols if len(col.split()) == 2]
 samples = toolz.pluck(1, cols)
 samples = [sample for sample in samples if sample.startswith('Q')]
-
 intensity_cols = ['Intensity ' + sample for sample in samples]
 intensities = df[intensity_cols]
 intensities.columns = samples
 
+#Preparation
 flat_int = intensities.unstack()
 flat_int.name = "intensity"
 flat_int = flat_int.reset_index()
@@ -39,10 +40,7 @@ def convert_headers(headers):
     return [{'header': header,
              'uniprot': id} for header, id in zip(headers, ids)]
     
-client = MongoClient('localhost', 27017)
-db = client.proteome
-analysis = db.analysis
-
+#Data are saved in a json file, one file per sample containing its quantified proteome
 flat_int['proteinGroup'] = flat_int.proteinIds.apply(convert_headers)
 for group, df in flat_int.groupby("sample"):
     data = {}
