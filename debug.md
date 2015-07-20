@@ -13,13 +13,13 @@ data = db.data
 for col in intensities.columns:
     for i in result["Sequence"]:
         sequence = i
-        res = es.search(index="peptome", body={
+        res = es.search(index="myindex", body={
             "query": {
                 "bool": {
                     "must": [
                         {
                             "query_string": {
-                                "default_field": "myindex.myfield",
+                                "default_field": "mytype.myfield",
                                 "query": sequence
                             }
                         }
