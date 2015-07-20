@@ -1,4 +1,4 @@
-In case data are not transfered from mongodb to elasticsearch by transporter
+#In case data are not transfered from mongodb to elasticsearch by transporter
 
 error message: 
 
@@ -13,7 +13,6 @@ data = db.data
 for col in intensities.columns:
     for i in result["Sequence"]:
         sequence = i
-
         res = es.search(index="peptome", body={
             "query": {
                 "bool": {
