@@ -1,6 +1,7 @@
 #In case data are not transfered from mongodb to elasticsearch by transporter
 
-error message: 
+error message: transporter: CRITICAL: elasticsearch error (Bulk Insertion Error. Failed item count [43])
+
 
 Use elasticsearch to 
 
