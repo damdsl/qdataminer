@@ -47,4 +47,4 @@ for col in intensities.columns:
         new_doc["ES_query_return"] = res
         data.insert(new_doc)
 
-#Find in elasticsearch what documents are not transferred with the following search command (:
+Find in elasticsearch what documents are not transferred with the following search command (:
