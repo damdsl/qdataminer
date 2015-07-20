@@ -2,9 +2,9 @@ In case data are not transfered from mongodb to elasticsearch by transporter
 
 error message: 
 
-#Use elasticsearch to 
+Use elasticsearch to 
 
-#create a tmp database with search results. If the document is absent, no information is sent back. We need to attribute a unique identifier permitting to figure out what documents are not transferred:
+create a tmp database with search results. If the document is absent, no information is sent back. We need to attribute a unique identifier permitting to figure out what documents are not transferred:
 
 client = MongoClient('localhost', 27017)
 db = client.search
