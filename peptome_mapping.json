@@ -1,27 +1,53 @@
 
-body={"_type": {"store":"yes"},
+
   "properties": {
-    "intensity": {"type": "long"},
-    "acetyl(K)_siteIDs": {"type": "long"},
-    "mass": {"type": "long"},
-    "length": {"type": "long"},
-    "phospho(STY)_siteIDs": {"type": "long"},
-    "C-term_cleavage_window": {"type": "string"},
-    "Sequence": {"type": "string"},
-    "N-term_cleavage_window": {"type": "string"},
-    "sample": {"type": "string"},
-    "oxidation(M)_siteIDs": {"type": "long"},
+    "intensity": {
+      "type": "long"
+    },
+    "acetyl(K)_siteIDs": {
+      "type": "long"
+    },
+    "mass": {
+      "type": "long"
+    },
+    "length": {
+      "type": "long"
+    },
+    "phospho(STY)_siteIDs": {
+      "type": "long"
+    },
+    "C-term_cleavage_window": {
+      "type": "string"
+    },
+    "Sequence": {
+      "type": "string"
+    },
+    "N-term_cleavage_window": {
+      "type": "string"
+    },
+    "sample": {
+      "type": "string"
+      "index_analyzer":  "autocomplete", 
+      "search_analyzer": "standard"
+    },
+    "oxidation(M)_siteIDs": {
+      "type": "long"
+    },
     "proteinGroup": {
       "properties": {
         "header": {
           "type": "string"
+           "index_analyzer":  "autocomplete", 
+            "search_analyzer": "standard"
           },
         "uniprot": {
           "type": "string"
+          "index_analyzer":  "autocomplete", 
+          "search_analyzer": "standard"
         }
       }
     }
   }
-}
+
 
 
