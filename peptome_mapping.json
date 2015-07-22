@@ -26,8 +26,8 @@
       "type": "string"
     },
     "sample": {
-      "type": "string"
-      "index_analyzer":  "autocomplete", 
+      "type": "string",
+      "index_analyzer":  "autocomplete",
       "search_analyzer": "standard"
     },
     "oxidation(M)_siteIDs": {
@@ -36,13 +36,13 @@
     "proteinGroup": {
       "properties": {
         "header": {
-          "type": "string"
-           "index_analyzer":  "autocomplete", 
-            "search_analyzer": "standard"
+          "type": "string",
+          "index_analyzer": "autocomplete",
+          "search_analyzer": "standard"
           },
         "uniprot": {
-          "type": "string"
-          "index_analyzer":  "autocomplete", 
+          "type": "string",
+          "index_analyzer": "autocomplete",
           "search_analyzer": "standard"
         }
       }
