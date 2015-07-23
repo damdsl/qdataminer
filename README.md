@@ -1,8 +1,8 @@
 # qdataminer
 
-qdataminer permits the mining of quantitative omics data
+qdataminer is a earch system for the mining of quantitative omics data
 
-Data is extracted and processed through python scripts and then stored in a Mongodb database. Mining of data can be done via elasticsearch synchronized to Mongodb via transporter application (Compose) 
+Data is extracted and processed through python scripts and then stored in a Mongodb database. Mining of data can be done through elasticsearch API synchronized to Mongodb via transporter application (Compose) 
 
 This repo contains python scripts to process and extract valuable quantitative information from MaxQuant (MQ) proteomics reports
 
