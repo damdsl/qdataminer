@@ -59,7 +59,7 @@ curl -XPUT localhost:9200/proteins/uniprot_2015_08/_mapping -d ' {
             },
             "id": {
                 "type": "string",
-                "analyzer":  "autocomplete",
+                "analyzer":  "autocomplete"
             },
             "isoformOf": {
                 "type": "string"
