@@ -1,0 +1,65 @@
+
+curl -XPUT localhost:9200/proteins/uniprot_2015_08/_mapping -d '
+        "properties": {
+            "ncbi_taxid": {
+                "type": "long"
+            },
+            "sequence": {
+                "type": "string"
+            },
+            "trypticCtermTags": {
+                "type": "string"
+            },
+            "OC": {
+                "type": "string"
+            },
+            "OS": {
+                "type": "string"
+            },
+            "accessionCodes": {
+                "type": "string"
+            },
+            "isCanonical": {
+                "type": "boolean"
+            },
+            "trypticPeptides": {
+                "type": "string"
+            },
+            "xrefs": {
+                "properties": {
+                    "PDB": {
+                        "properties": {
+                            "method": {
+                                "type": "string"
+                            },
+                            "chains": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "start": {
+                                        "type": "long"
+                                    },
+                                    "end": {
+                                        "type": "long"
+                                    }
+                                }
+                            },
+                            "id": {
+                                "type": "string"
+                            },
+                            "resolution": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            },
+            "id": {
+                "type": "string"
+            },
+            "isoformOf": {
+                "type": "string"
+            }
+        }
+        
