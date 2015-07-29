@@ -11,7 +11,7 @@ curl -XPUT localhost:9200/proteins/uniprot_2015_08/_mapping -d ' {
                 "type": "string"
             },
             "OC": {
-                "type": "string"
+                "type": "string",
                 "index_analyzer":  "autocomplete",
                 "search_analyzer": "standard"
             },
@@ -60,7 +60,7 @@ curl -XPUT localhost:9200/proteins/uniprot_2015_08/_mapping -d ' {
                 }
             },
             "id": {
-                "type": "string"
+                "type": "string",
                 "index_analyzer":  "autocomplete",
                 "search_analyzer": "standard"
             },
