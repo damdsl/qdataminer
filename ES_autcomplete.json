@@ -1,12 +1,13 @@
-
+curl -XPUT localhost:9200/proteins/ -d'
 {
     "settings": {
         "analysis": {
             "filter": {
                 "autocomplete_filter": { 
-                    "type": "edge_ngram",
-                    "min_gram": 1,
-                    "max_gram": 20
+                    "type": "edgeNgram",
+                    "min_gram": 2,
+                    "max_gram": 5,
+                     "token_chars": [ "letter", "digit" ]
                 }
             },
             "analyzer": {
@@ -21,4 +22,4 @@
             }
         }
     }
-}
+}'
