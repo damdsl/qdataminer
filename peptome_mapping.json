@@ -1,5 +1,4 @@
-
-
+curl -XPUT localhost:9200/peptome/peptide_analysis/_mapping -d' {
   "properties": {
     "intensity": {
       "type": "long"
@@ -37,8 +36,6 @@
       "properties": {
         "header": {
           "type": "string",
-          "index_analyzer": "autocomplete",
-          "search_analyzer": "standard"
           },
         "uniprot": {
           "type": "string",
@@ -48,6 +45,6 @@
       }
     }
   }
-
+}'
 
 
