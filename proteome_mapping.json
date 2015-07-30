@@ -11,8 +11,7 @@ curl -XPUT localhost:9200/proteome/protein_analysis/_mapping -d' {
                             "type": "string"
                         },
                         "uniprot": {
-                            "search_analyzer": "standard",
-                            "index_analyzer": "autocomplete",
+                            "analyzer": "autocomplete",
                             "type": "string"
                         }
                     }
@@ -20,8 +19,7 @@ curl -XPUT localhost:9200/proteome/protein_analysis/_mapping -d' {
             }
         },
         "sample": {
-            "search_analyzer": "standard",
-            "index_analyzer": "autocomplete",
+            "analyzer": "autocomplete",
             "type": "string"
         }
     }
