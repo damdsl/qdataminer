@@ -1,0 +1,28 @@
+curl -XPUT localhost:9200/proteome/protein_analysis/_mapping -d' {
+    "properties": {
+        "proteins": {
+            "properties": {
+                "intensity": {
+                    "type": "long"
+                },
+                "proteinGroup": {
+                    "properties": {
+                        "header": {
+                            "type": "string"
+                        },
+                        "uniprot": {
+                            "search_analyzer": "standard",
+                            "index_analyzer": "autocomplete",
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "sample": {
+            "search_analyzer": "standard",
+            "index_analyzer": "autocomplete",
+            "type": "string"
+        }
+    }
+}'
