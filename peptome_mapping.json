@@ -26,7 +26,7 @@ curl -XPUT localhost:9200/peptome/peptide_analysis/_mapping -d' {
     },
     "sample": {
       "type": "string",
-      "analyzer":  "autocomplete",
+      "analyzer":  "autocomplete"
     },
     "oxidation(M)_siteIDs": {
       "type": "long"
