@@ -6,8 +6,7 @@ curl -XPUT localhost:9200/proteins/uniprot_2015_08/_mapping -d ' {
             },
             "sequence": {
                 "type": "string",
-                "index_analyzer":  "autocomplete",
-                "search_analyzer": "standard"
+                "analyzer":  "autocomplete",
             },
             "trypticCtermTags": {
                 "type": "string"
@@ -17,8 +16,7 @@ curl -XPUT localhost:9200/proteins/uniprot_2015_08/_mapping -d ' {
             },
             "OS": {
                 "type": "string",
-                "index_analyzer":  "autocomplete",
-                "search_analyzer": "standard"
+                "analyzer":  "autocomplete"
             },
             "accessionCodes": {
                 "type": "string"
