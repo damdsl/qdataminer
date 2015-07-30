@@ -26,8 +26,7 @@ curl -XPUT localhost:9200/peptome/peptide_analysis/_mapping -d' {
     },
     "sample": {
       "type": "string",
-      "index_analyzer":  "autocomplete",
-      "search_analyzer": "standard"
+      "analyzer":  "autocomplete",
     },
     "oxidation(M)_siteIDs": {
       "type": "long"
@@ -39,8 +38,7 @@ curl -XPUT localhost:9200/peptome/peptide_analysis/_mapping -d' {
           },
         "uniprot": {
           "type": "string",
-          "index_analyzer": "autocomplete",
-          "search_analyzer": "standard"
+          "analyzer": "autocomplete"
         }
       }
     }
