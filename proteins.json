@@ -5,14 +5,14 @@ curl -XPUT localhost:9200/proteins/uniprot_2015_08/_mapping -d ' {
                 "type": "long"
             },
             "sequence": {
-                "type": "string"
+                "type": "string",
+                "analyzer":  "autocomplete"
             },
             "trypticCtermTags": {
                 "type": "string"
             },
             "OC": {
-                "type": "string",
-                "analyzer":  "autocomplete"
+                "type": "string"
             },
             "OS": {
                 "type": "string",
@@ -58,8 +58,7 @@ curl -XPUT localhost:9200/proteins/uniprot_2015_08/_mapping -d ' {
                 }
             },
             "id": {
-                "type": "string",
-                "analyzer":  "autocomplete"
+                "type": "string"
             },
             "isoformOf": {
                 "type": "string"
