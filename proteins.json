@@ -6,7 +6,8 @@ curl -XPUT localhost:9200/proteins/uniprot_2015_08/_mapping -d ' {
             },
             "sequence": {
                 "type": "string",
-                "analyzer":  "autocomplete"
+                "index_analyzer":  "autocomplete",
+                "search_analyzer": "standard"
             },
             "trypticCtermTags": {
                 "type": "string"
@@ -16,7 +17,8 @@ curl -XPUT localhost:9200/proteins/uniprot_2015_08/_mapping -d ' {
             },
             "OS": {
                 "type": "string",
-                "analyzer":  "autocomplete"
+                "index_analyzer":  "autocomplete",
+                "search_analyzer": "standard"
             },
             "accessionCodes": {
                 "type": "string"
@@ -65,29 +67,3 @@ curl -XPUT localhost:9200/proteins/uniprot_2015_08/_mapping -d ' {
             }
         }
 }'
-
-
-curl -XPUT localhost:9200/proteins/uniprot_2015_08/_mapping -d ' {
-        "properties": {
-            "sequence": {
-                "type": "string"
-            },
-            "OC": {
-                "type": "string",
-                "analyzer":  "autocomplete"
-            },
-            "OS": {
-                "type": "string",
-                "analyzer":  "autocomplete"
-            },
-            "trypticPeptides": {
-                "type": "string"
-            },
-            "id": {
-                "type": "string",
-                "analyzer":  "autocomplete"
-            }
-        }
-}'
-
-
