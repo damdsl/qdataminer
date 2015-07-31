@@ -35,7 +35,7 @@ curl -XPUT localhost:9200/proteins_test/ -d'
                 "autocomplete_filter": { 
                     "type":     "edge_ngram",
                     "min_gram": 1,
-                    "max_gram": 100
+                    "max_gram": 20
                 }
             },
             "analyzer": {
