@@ -73,11 +73,11 @@ curl -XPUT localhost:9200/proteins_test/uniprot_2015_08/_mapping -d ' {
                 "type": "long"
             },
             "sequence": {
+                "type": "string"
+            },
+            "sequence_autocomplete": {
                 "type": "string",
                 "analyzer":  "autocomplete"
-            },
-            "trypticCtermTags": {
-                "type": "string"
             },
             "OC": {
                 "type": "string"
