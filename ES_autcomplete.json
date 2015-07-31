@@ -25,3 +25,29 @@ curl -XPUT localhost:9200/proteins/ -d'
 #test
 curl -XGET localhost:9200/proteins/_analyze?analyzer=autocomplete -d'
 Hello world'
+
+
+curl -XPUT localhost:9200/proteins_test/ -d'
+{
+    "settings": {
+        "analysis": {
+            "filter": {
+                "autocomplete_filter": { 
+                    "type":     "edge_ngram",
+                    "min_gram": 1,
+                    "max_gram": 100
+                }
+            },
+            "analyzer": {
+                "autocomplete": {
+                    "type":      "custom",
+                    "tokenizer": "standard",
+                    "filter": [
+                        "lowercase",
+                        "autocomplete_filter" 
+                    ]
+                }
+            }
+        }
+    }
+}'
