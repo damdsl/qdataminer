@@ -57,7 +57,7 @@ curl -XPUT localhost:9200/proteins_quintgram/ -d'
     "settings": {
         "analysis": {
             "filters": {
-                "trigram_filter": { 
+                "quintgram_filter": { 
                     "type":     "quintgram",
                     "min_gram": 5,
                     "max_gram": 5
