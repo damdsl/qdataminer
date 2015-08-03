@@ -67,7 +67,7 @@ curl -XPUT localhost:9200/proteins/uniprot_2015_08/_mapping -d ' {
 }'
 
 
-curl -XPUT localhost:9200/proteins_test/uniprot_2015_08/_mapping -d ' {
+curl -XPUT localhost:9200/proteins_test2/uniprot_2015_08/_mapping -d ' {
         "properties": {
             "ncbi_taxid": {
                 "type": "long"
@@ -77,7 +77,8 @@ curl -XPUT localhost:9200/proteins_test/uniprot_2015_08/_mapping -d ' {
             },
             "sequence_autocomplete": {
                 "type": "string",
-                "analyzer":  "autocomplete"
+                "index_analyzer":  "autocomplete",
+                "search_analyzer": "standard"
             },
             "OC": {
                 "type": "string"
