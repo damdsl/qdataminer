@@ -56,27 +56,14 @@ curl -XPUT localhost:9200/proteins_quintgram/ -d'
 {
     "settings": {
         "analysis": {
-            "filters": {
+            "filter": {
                 "quintgram_filter": { 
                     "type":     "ngram",
                     "min_gram": 5,
                     "max_gram": 5
-                },
-                "autocomplete_filter": {
-                    "type":     "edge_ngram",
-                    "min_gram": 1,
-                    "max_gram": 50
                 }
             },
-            "analyzers": {
-                "autocomplete": {
-                    "type":      "custom",
-                    "tokenizer": "standard",
-                    "filter": [
-                        "lowercase",
-                        "autocomplete_filter" 
-                    ]
-                },
+            "analyzer": {
                 "quintgram": {
                     "type":      "custom",
                     "tokenizer": "standard",
