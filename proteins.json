@@ -109,8 +109,7 @@ curl -XPUT localhost:9200/proteins_test2/uniprot_2015_08/_mapping -d ' {
                 "type": "string"
             },
             "OS": {
-                "type": "string",
-                "analyzer":  "autocomplete"
+                "type": "string"
             },
             "id": {
                 "type": "string"
