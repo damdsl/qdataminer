@@ -51,3 +51,28 @@ curl -XPUT localhost:9200/proteins_test/ -d'
         }
     }
 }'
+
+curl -XPUT localhost:9200/proteins_test2/ -d'
+{
+    "settings": {
+        "analysis": {
+            "filter": {
+                "trigram_filter": { 
+                    "type":     "ngram",
+                    "min_gram": 3,
+                    "max_gram": 3
+                }
+            },
+            "analyzer": {
+                "trigram": {
+                    "type":      "custom",
+                    "tokenizer": "standard",
+                    "filter": [
+                        "lowercase",
+                        "trigram_filter" 
+                    ]
+                }
+            }
+        }
+    }
+}'
