@@ -102,8 +102,7 @@ curl -XPUT localhost:9200/proteins_quintgram/uniprot_2015_08/_mapping -d ' {
                 "analyzer":  "quintgram"
             },
             "OC": {
-                "type": "string",
-                "analyzer": "autocomplete"
+                "type": "string"
             },
             "OS": {
                 "type": "string"
