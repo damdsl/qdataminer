@@ -76,7 +76,7 @@ curl -XPUT localhost:9200/proteins_quintgram/ -d'
                         "lowercase",
                         "autocomplete_filter" 
                     ]
-                }
+                },
                 "quintgram": {
                     "type":      "custom",
                     "tokenizer": "standard",
