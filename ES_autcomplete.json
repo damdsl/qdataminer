@@ -52,24 +52,24 @@ curl -XPUT localhost:9200/proteins_test/ -d'
     }
 }'
 
-curl -XPUT localhost:9200/proteins_quintgram/ -d'
+curl -XPUT localhost:9200/proteins_5gram/ -d'
 {
     "settings": {
         "analysis": {
             "filter": {
-                "quintgram_filter": { 
+                "5gram_filter": { 
                     "type":     "ngram",
                     "min_gram": 5,
                     "max_gram": 5
                 }
             },
             "analyzer": {
-                "quintgram": {
+                "5gram": {
                     "type":      "custom",
                     "tokenizer": "standard",
                     "filter": [
                         "lowercase",
-                        "quintgram_filter" 
+                        "5gram_filter" 
                     ]
                 }
             }
