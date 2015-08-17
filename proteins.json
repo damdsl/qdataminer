@@ -6,7 +6,7 @@ curl -XPUT localhost:9200/proteins/uniprot_2015_08/_mapping -d ' {
             },
             "sequence": {
                 "type": "string",
-                "analyzer":  "5grams"
+                "analyzer":  "5gram"
             },
             "trypticCtermTags": {
                 "type": "string"
