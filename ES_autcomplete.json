@@ -52,7 +52,7 @@ curl -XPUT localhost:9200/proteins_test/ -d'
     }
 }'
 
-curl -XPUT localhost:9200/proteins_5gram/ -d'
+curl -XPUT localhost:9200/proteins/ -d'
 {
     "settings": {
         "analysis": {
