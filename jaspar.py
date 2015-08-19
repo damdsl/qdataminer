@@ -1,4 +1,4 @@
-for group in df:
+for group in df.index:
     data={}
     meta = matrix_annotation2.get_group(group)
     meta=meta.set_index('index')
