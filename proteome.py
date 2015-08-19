@@ -49,16 +49,3 @@ for group, df in flat_int.groupby("sample"):
         json.dump(data, f)
         analysis.insert(data)
 
-for group in df.index:
-    data={}
-    data['jaspar_number']=group
-    data['annotations']= matrix_annotation2.get_group(group).to_json(orient='records')
-    file= df.loc[group, 'matrixID']
-    with open('/root/jaspar_database/jaspar_database/sites/%s.1.sites' % file, 'w') as handle:
-        motif = motifs.read(handle, "sites")
-        sequence=[]
-        for instance in motif.instances:
-            sequence.append(str(instance))
-        data['motifs']=sequence
-    with open('output_%s.json' % group, 'w') as f:
-        json.dump(data, f)
