@@ -14,6 +14,8 @@ df=df.drop('Unnamed: 0', 1)
 
 df=df.rename(columns={'x': 'DNA_sequence'})
 df = df.set_index('SYMBOL')
+
+df['annotation'] = df.annotation.str.split(' ')
 df['annotation'] = tuple(x[0] for x in df['annotation'])
 
 with open('tmp.json', 'w') as f:
