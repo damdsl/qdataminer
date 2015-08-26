@@ -2,7 +2,7 @@
 #15/08/11
 
 #Script for ChIPseq analysis
-
+#This script takes MACS peak calling output files, creates plots for datavis and prepare a df used in chip_seq.py to clean the data and index them in MongoDB
 library("ChIPseeker", lib.loc="~/R/x86_64-redhat-linux-gnu-library/3.2")
 library("BSgenome.Mmusculus.UCSC.mm10", lib.loc="~/R/x86_64-redhat-linux-gnu-library/3.2")
 require("org.Mm.eg.db")
@@ -12,7 +12,7 @@ library("TxDb.Mmusculus.UCSC.mm10.knownGene", lib.loc="~/R/x86_64-redhat-linux-g
 setwd('/home/damiendsl/data_analysis_toolbox/datasets/GSE71250/macs_SRR2124925/')
 files=list.files()
 txdb = TxDb.Mmusculus.UCSC.mm10.knownGene  #Reference for annotation
-peaks= readPeakFile(files[[8]])
+peaks= readPeakFile(files[[8]]) # Check this numer before, the file must be a BED file containing the peaks
 covplot(peaks, weightCol = "V5")
 
 #Profile of ChIP binding to TSS regions
@@ -37,7 +37,7 @@ require("BSgenome.Mmusculus.UCSC.mm10")
 df_peakAnno=read.table('peakAnno.txt')
 
 #load table containing Macs statistics
-SRR2124925_xls=read.table(files[[10]], skip=23, header=TRUE)
+SRR2124925_xls=read.table(files[[10]], skip=23, header=TRUE)#Check this number before, the file must be a XLS file containing macs statistics
 #creation of metadata fields
 SRR2124925_xls$sample <- rep("SRR2124925",nrow(SRR2124925_xls)) 
 SRR2124925_xls$type_experiment <- rep("ChIP-seq",nrow(SRR2124925_xls)) 
