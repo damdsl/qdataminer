@@ -9,8 +9,8 @@ require("org.Mm.eg.db")
 require('GenomicFeatures')
 library("TxDb.Mmusculus.UCSC.mm10.knownGene", lib.loc="~/R/x86_64-redhat-linux-gnu-library/3.2")
 
-setwd('/home/damiendsl/data_analysis_toolbox/datasets/GSE71250/macs_SRR2124925/')
-files=list.files()
+setwd('<your_path>')
+files = list.files()
 txdb = TxDb.Mmusculus.UCSC.mm10.knownGene  #Reference for annotation
 peaks= readPeakFile(files[[8]]) # Check this numer before, the file must be a BED file containing the peaks
 covplot(peaks, weightCol = "V5")
@@ -31,31 +31,27 @@ plotAvgProf(tagMatrix, xlim = c(-3000, 3000), xlab = "Genomic Region (5'->3')", 
 peakAnno = annotatePeak(files[[8]], tssRegion = c(-3000, 3000), TxDb = txdb, annoDb="org.Mm.eg.db")
 write.table(peakAnno, file = "peakAnno.txt")
 
-source("/home/damiendsl/Rscripts/convert_tojson.R")
 require('BSgenome')
 require("BSgenome.Mmusculus.UCSC.mm10")
-df_peakAnno=read.table('peakAnno.txt')
+df_peakAnno = read.table('peakAnno.txt')
 
 #load table containing Macs statistics
-SRR2124925_xls=read.table(files[[10]], skip=23, header=TRUE)#Check this number before, the file must be a XLS file containing macs statistics
+statsXls=read.table(files[[10]], skip=23, header=TRUE)#Check this number before, the file must be a XLS file containing macs statistics
 #creation of metadata fields
-SRR2124925_xls$sample <- rep("SRR2124925",nrow(SRR2124925_xls)) 
-SRR2124925_xls$type_experiment <- rep("ChIP-seq",nrow(SRR2124925_xls)) 
-SRR2124925_xls$TF_study <- rep("Hnf1b",nrow(SRR2124925_xls)) 
-SRR2124925_xls$replicate <- rep(2,nrow(SRR2124925_xls)) 
+statsXls$sample = rep("SRR2124925",nrow(statsXls)) 
+statsXls$type_experiment = rep("ChIP-seq",nrow(statsXls)) 
+statsXls$TF_study = rep("Hnf1b",nrow(statsXls)) 
+statsXls$replicate = rep(2,nrow(statsXls)) 
 
-df = merge(df_peakAnno, SRR2124925_xls)
+df = merge(df_peakAnno, statsXls)
 write.csv(df, 'df.csv')
-write.csv(df_peakAnno, 'peakAnno.csv')
-
-json_peakAnno=toJSONarray(df_peakAnno)
-write(json_peakAnno, "peakAnnotation.json")
 
 #Finding DNA sequences corresponding to window
 genome = BSgenome.Mmusculus.UCSC.mm10
 seqPeaks=data.frame(chr=df_peakAnno$geneChr, start=df_peakAnno$start, end=df_peakAnno$end, strand=df_peakAnno$strand)
 Peak_DNA_sequence=as.data.frame(getSeq(genome, seqPeaks$chr, start=seqPeaks$start, end=seqPeaks$end, strand=seqPeaks$strand))
 write.csv(Peak_DNA_sequence, 'Peak_DNA_sequence.csv')
+#eventually
 seqGenes=data.frame(chr=df_peakAnno$geneChr, start=df_peakAnno$geneStart, end=df_peakAnno$geneEnd)
 Gene_sequence=getSeq(genome, seqGenes$chr, start=seqGenes$start, end=seqGenes$end)
 
