@@ -38,10 +38,10 @@ df_peakAnno = read.table('peakAnno.txt')
 #load table containing Macs statistics
 statsXls=read.table(files[[10]], skip=23, header=TRUE)#Check this number before, the file must be a XLS file containing macs statistics
 #creation of metadata fields
-statsXls$sample = rep("SRR2124925",nrow(statsXls)) 
+statsXls$sample = rep("sample",nrow(statsXls)) 
 statsXls$type_experiment = rep("ChIP-seq",nrow(statsXls)) 
-statsXls$TF_study = rep("Hnf1b",nrow(statsXls)) 
-statsXls$replicate = rep(2,nrow(statsXls)) 
+statsXls$TF_study = rep("TF_name",nrow(statsXls)) 
+statsXls$replicate = rep(n,nrow(statsXls)) 
 
 df = merge(df_peakAnno, statsXls)
 write.csv(df, 'df.csv')
