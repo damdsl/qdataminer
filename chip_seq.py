@@ -1,7 +1,7 @@
 import pandas as pd
 import json
 
-df=pd.read_csv("/home/damiendsl/data_analysis_toolbox/datasets/GSE71250/macs_SRR2124925/df.csv",  sep=',')
+df=pd.read_csv("df.csv",  sep=',')
 df=df.rename(columns={'X.10.log10.pvalue.': 'X_10_log10_pvalue'})
 df=df.rename(columns={'FDR...': 'FDR'})
 df=df.drop('V4', 1)
