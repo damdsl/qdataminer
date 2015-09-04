@@ -1,6 +1,6 @@
 # qdataminer
 
-qdataminer is a earch system for the mining of quantitative omics data
+qdataminer is a search system for the mining of quantitative omics data
 
 Data is extracted and processed through python scripts and then stored in a Mongodb database. Mining of data can be done through elasticsearch API synchronized to Mongodb via transporter application (Compose) 
 
