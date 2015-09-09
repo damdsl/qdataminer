@@ -45,8 +45,7 @@ curl -XPUT localhost:9200/peptome/peptide_analysis/_mapping -d' {
   }
 }'
 curl -XPUT localhost:9200/peptome/peptide_analysis/_mapping -d' {
-"properties":}
-{
+"properties":{
 "TF_study": {"type": "string"},
 "summit": {"type": "long"},
 "geneLength": {"type": "long"},
@@ -69,7 +68,7 @@ curl -XPUT localhost:9200/peptome/peptide_analysis/_mapping -d' {
 "length": {"type": "long"},
 "start": {"type": "long"},
 "GENENAME": {"type": "string"},
-"chr": "type": "string"},
+"chr": {"type": "string"},
 "sample": {"type": "string"},
 "tags": {"type": "long"},
 "fold_enrichment": {"type": "double"},
