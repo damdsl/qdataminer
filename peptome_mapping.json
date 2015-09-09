@@ -44,37 +44,4 @@ curl -XPUT localhost:9200/peptome/peptide_analysis/_mapping -d' {
     }
   }
 }'
-curl -XPUT localhost:9200/chip/peaks/_mapping -d' {
-"properties":{
-"TF_study": {"type": "string"},
-"summit": {"type": "long"},
-"geneLength": {"type": "long"},
-"DNA_sequence": {
-  "type": "string",
-  "analyzer":  "autocomplete"
-},
-"distanceToTSS": {"type": "long"},
-"strand": {"type": "string"},
-"type_experiment": {"type": "string"},
-"FDR": {"type": "double"},
-"geneId": {"type": "long"},
-"end": {"type": "long"},
-"annotation": {"type": "string"},
-"geneChr": {"type": "string"},
-"replicate": {"type": "long"},
-"geneStart": {"type": "long"},
-"ENSEMBL": {"type": "string"},
-"geneStrand": {"type": "string"},
-"length": {"type": "long"},
-"start": {"type": "long"},
-"GENENAME": {"type": "string"},
-"chr": {"type": "string"},
-"sample": {"type": "string"},
-"tags": {"type": "long"},
-"fold_enrichment": {"type": "double"},
-"SYMBOL": {"type": "string"},
-"transcriptId": {"type": "string"},
-"X_10_log10_pvalue": {"type": "double"},
-"width": {"type": "long"},
-"geneEnd": {"type": "long"}
-}'
+
