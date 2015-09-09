@@ -44,7 +44,7 @@ curl -XPUT localhost:9200/peptome/peptide_analysis/_mapping -d' {
     }
   }
 }'
-curl -XPUT localhost:9200/peptome/peptide_analysis/_mapping -d' {
+curl -XPUT localhost:9200/chip/peaks/_mapping -d' {
 "properties":{
 "TF_study": {"type": "string"},
 "summit": {"type": "long"},
