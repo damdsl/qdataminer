@@ -19,14 +19,15 @@ curl -XPUT localhost:9200/peptome/peptide_analysis/_mapping -d' {
       "type": "string"
     },
     "Sequence": {
-      "type": "string"
+      "type": "string",
+      "analyzer":"autocomplete"
     },
     "N-term_cleavage_window": {
       "type": "string"
     },
     "sample": {
       "type": "string",
-      "analyzer":  "autocomplete"
+      "index":  "not_analyzed"
     },
     "oxidation(M)_siteIDs": {
       "type": "long"
@@ -34,11 +35,12 @@ curl -XPUT localhost:9200/peptome/peptide_analysis/_mapping -d' {
     "proteinGroup": {
       "properties": {
         "header": {
-          "type": "string"
+          "type": "string",
+          "index":  "not_analyzed"
           },
         "uniprot": {
           "type": "string",
-          "analyzer": "autocomplete"
+          "index":  "not_analyzed"
         }
       }
     }
